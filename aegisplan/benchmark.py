@@ -257,7 +257,7 @@ class BenchmarkHarness:
             "infeasible_count": 5,
             "variants": {
                 "variant_1_unconstrained": {
-                    "name": "1. Baseline: Unconstrained JSON",
+                    "name": "1. Baseline: OpenAI GPT-4o-mini (Unconstrained JSON)",
                     "syntax_validity_pct": 82.5,
                     "pre_overlap_pct": 21.4,
                     "post_overlap_pct": 21.4,

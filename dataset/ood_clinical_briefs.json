@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ood_01_urgent_care",
+    "name": "High-Density Urgent Care & Triage Suite",
+    "w": 22000,
+    "h": 14000,
+    "brief": "Urgent care center requiring waiting room with physical separation from triage desk, central circulation corridor, 5 standard exam rooms (>=11.15 m2), 1 airborne infection isolation room with dedicated restroom, ADA patient restroom, staff breakroom, and clean utility.",
+    "locked": [
+      {"id": "waiting_1", "type": "waiting", "x": 0, "y": 0, "w": 6500, "h": 5000},
+      {"id": "corridor_1", "type": "corridor", "x": 0, "y": 5000, "w": 22000, "h": 2200}
+    ]
+  },
+  {
+    "id": "ood_02_ambulatory_surgery",
+    "name": "Rural Ambulatory Surgery & Endoscopy Center",
+    "w": 26000,
+    "h": 16000,
+    "brief": "Ambulatory endoscopy center with public reception, wide 2400mm central stretcher corridor, 2 procedure rooms (>= 23.2 m2 each), pre-op / post-op recovery bay (>= 18.0 m2), sterile supply clean utility, soiled decontamination utility, and ADA staff restroom.",
+    "locked": [
+      {"id": "corridor_1", "type": "corridor", "x": 0, "y": 6000, "w": 26000, "h": 2400}
+    ]
+  },
+  {
+    "id": "ood_03_pediatric_dental",
+    "name": "Pediatric Dental & Orthodontic Clinic",
+    "w": 18000,
+    "h": 12000,
+    "brief": "Pediatric dentistry clinic with child-friendly waiting area, reception desk, central corridor, 3 semi-private operatory rooms (>= 11.15 m2 each), 1 quiet consult exam room, ADA compliant family restroom, and clean sterilization room.",
+    "locked": [
+      {"id": "waiting_1", "type": "waiting", "x": 0, "y": 0, "w": 5500, "h": 4500}
+    ]
+  },
+  {
+    "id": "ood_04_oncology_infusion",
+    "name": "Outpatient Oncology Infusion Center",
+    "w": 24000,
+    "h": 15000,
+    "brief": "Cancer care infusion clinic with patient check-in, nurse station with direct line-of-sight to corridor, 4 private infusion bays (>= 11.15 m2 each), compounding pharmacy cleanroom, hazardous soiled utility with physical separation, and ADA restroom.",
+    "locked": [
+      {"id": "reception_1", "type": "reception", "x": 0, "y": 0, "w": 5000, "h": 4500},
+      {"id": "corridor_1", "type": "corridor", "x": 0, "y": 4500, "w": 24000, "h": 2200}
+    ]
+  },
+  {
+    "id": "ood_05_behavioral_health",
+    "name": "Community Behavioral Health & Crisis Clinic",
+    "w": 20000,
+    "h": 12000,
+    "brief": "Mental health outpatient center featuring secure waiting reception, wide circulation corridor, 4 sound-attenuated consult therapy rooms (>= 11.15 m2), 1 crisis stabilization room, separate staff breakroom, and single-occupant ADA restroom.",
+    "locked": [
+      {"id": "waiting_1", "type": "waiting", "x": 0, "y": 0, "w": 6000, "h": 4500}
+    ]
+  },
+  {
+    "id": "ood_06_dialysis_center",
+    "name": "Hemodialysis Outpatient Facility",
+    "w": 25000,
+    "h": 15000,
+    "brief": "Outpatient dialysis clinic requiring patient entrance waiting, central stretcher corridor (>= 2150mm), 4 clinical treatment rooms (>= 12.0 m2), water treatment equipment room, dedicated clean utility, soiled utility, and dual ADA restrooms.",
+    "locked": [
+      {"id": "corridor_1", "type": "corridor", "x": 0, "y": 5000, "w": 25000, "h": 2400}
+    ]
+  },
+  {
+    "id": "ood_07_imaging_center",
+    "name": "Diagnostic Imaging & Ultrasound Suite",
+    "w": 20000,
+    "h": 14000,
+    "brief": "Diagnostic imaging suite with patient reception, central access corridor, 1 lead-lined radiographic procedure room (>= 20.0 m2), 2 ultrasound exam rooms (>= 11.15 m2), patient change dressing room, radiologist reading office, and ADA restroom.",
+    "locked": [
+      {"id": "reception_1", "type": "reception", "x": 0, "y": 0, "w": 5000, "h": 4800}
+    ]
+  },
+  {
+    "id": "ood_08_sports_medicine",
+    "name": "Sports Medicine & Rehabilitation Clinic",
+    "w": 24000,
+    "h": 16000,
+    "brief": "Orthopedic physical therapy clinic with check-in waiting room, central corridor, large open rehabilitation gym (>= 35.0 m2), 3 musculoskeletal exam rooms (>= 11.15 m2), clean hydrotherapy supply utility, and ADA accessible patient restroom.",
+    "locked": [
+      {"id": "waiting_1", "type": "waiting", "x": 0, "y": 0, "w": 6000, "h": 5000},
+      {"id": "corridor_1", "type": "corridor", "x": 0, "y": 5000, "w": 24000, "h": 2200}
+    ]
+  }
+]
+
