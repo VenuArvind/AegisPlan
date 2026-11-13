@@ -100,3 +100,4 @@ def test_sse_time_to_first_byte():
 
     assert first_chunk is not None
     assert ttfb_ms < 100.0  # Fast initial handshake
+
