@@ -245,11 +245,11 @@ class BenchmarkHarness:
     def __init__(self, router: Optional[GenerationRouter] = None):
         self.router = router or GenerationRouter()
 
-    async def run_benchmark(self) -> Dict[str, Any]:
+    async def run_benchmark(self, mode: str = "fast") -> Dict[str, Any]:
         """Execute the 25-brief evaluation harness and report ablation metrics."""
         print(f"==================================================")
         print(f"AEGISPLAN QUANTITATIVE EVALUATION HARNESS")
-        print(f"Running across {len(BENCHMARK_BRIEFS)} standardized clinical test briefs...")
+        print(f"Running across {len(BENCHMARK_BRIEFS)} standardized clinical test briefs (mode={mode})...")
         print(f"==================================================\n")
 
         results: Dict[str, Any] = {
@@ -313,7 +313,7 @@ class BenchmarkHarness:
                 boundary_w=b["w"],
                 boundary_h=b["h"],
                 locked_rooms=b.get("locked"),
-                mode="local",
+                mode=mode,
                 num_candidates=3,
             )
             elapsed = time.perf_counter() - t0

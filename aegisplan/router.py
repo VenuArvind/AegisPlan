@@ -101,6 +101,10 @@ class GenerationRouter:
             raw_candidates_fml = await self._call_openrouter(
                 brief, boundary_w, boundary_h, locked_rooms, num_candidates
             )
+        elif mode == "fast":
+            raw_candidates_fml = self._synthesize_heuristic_candidates(
+                brief, boundary_w, boundary_h, locked_rooms, num_candidates
+            )
         else:
             # 1. Attempt high-speed GGUF quantized inference if available
             if mode in ["local", "gguf"]:

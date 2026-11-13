@@ -1,0 +1,7 @@
+AegisPlan SWE Micro-Benchmark: Async SSE Streaming vs. Sync Blocking
+====================================================================
+Requests Evaluated: 50
+Sync Blocking:  55.7 req/s | TTFB P50: 17.71ms | TTFB P95: 18.06ms | Total P95: 18.06ms
+Async Stream:   57.0 req/s | TTFB P50: 1.87ms | TTFB P95: 1.94ms | Total P95: 18.00ms
+TTFB P50 Reduction: 89.4%
+TTFB P95 Reduction: 89.3%

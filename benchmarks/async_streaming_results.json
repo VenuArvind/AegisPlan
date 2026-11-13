@@ -1,0 +1,27 @@
+{
+  "benchmark": "aegisplan_async_sse_streaming",
+  "requests_evaluated": 50,
+  "sync_blocking": {
+    "throughput_req_per_sec": 55.71,
+    "ttfb_p50_ms": 17.71,
+    "ttfb_p90_ms": 17.92,
+    "ttfb_p95_ms": 18.06,
+    "total_latency_p50_ms": 17.71,
+    "total_latency_p95_ms": 18.06,
+    "connection_success_rate": 1.0
+  },
+  "async_sse_streaming": {
+    "throughput_req_per_sec": 57.01,
+    "ttfb_p50_ms": 1.87,
+    "ttfb_p90_ms": 1.93,
+    "ttfb_p95_ms": 1.94,
+    "total_latency_p50_ms": 17.54,
+    "total_latency_p95_ms": 18.0,
+    "connection_success_rate": 1.0
+  },
+  "metrics": {
+    "ttfb_p50_reduction_percent": 89.42,
+    "ttfb_p95_reduction_percent": 89.28,
+    "throughput_lift_percent": 2.33
+  }
+}

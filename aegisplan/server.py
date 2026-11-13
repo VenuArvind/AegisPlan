@@ -4,7 +4,7 @@ from typing import List, Dict, Any, Optional
 import os
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -13,6 +13,7 @@ from aegisplan.fml_parser import parse_fml, serialize_to_fml
 from aegisplan.validator import validate_plan
 from aegisplan.cpsat_repair import repair_plan
 from aegisplan.router import GenerationRouter, FEW_SHOT_EXEMPLAR
+from aegisplan.streamer import stream_plan_generation
 
 app = FastAPI(
     title="AegisPlan API",
@@ -112,6 +113,33 @@ async def generate_plans(req: GenerateRequest):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/generate/stream")
+async def generate_plans_stream(req: GenerateRequest):
+    """
+    Asynchronous non-blocking Server-Sent Events (SSE) streaming endpoint.
+    Streams incremental synthesis milestones: brief verification, candidate drafting,
+    CP-SAT variable solving, building code checks, and final lexicographical rankings.
+    """
+    return StreamingResponse(
+        stream_plan_generation(
+            router=router,
+            brief=req.brief,
+            boundary_w=req.boundary_w,
+            boundary_h=req.boundary_h,
+            locked_rooms=req.locked_rooms,
+            mode=req.mode,
+            num_candidates=req.num_candidates,
+            enable_geometric_masking=req.enable_geometric_masking,
+        ),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
 
 
 @app.post("/api/validate")

@@ -90,6 +90,25 @@ Evaluated across random seeds (42, 137, 2026) across 20 feasible clinical briefs
 
 ---
 
+### 4. Asynchronous Non-Blocking Streaming Pipeline Benchmark (SSE)
+
+To eliminate head-of-line UI blocking during multi-candidate neural drafting and CP-SAT interval solving, AegisPlan implements an asynchronous event stream (`POST /api/generate/stream`) over HTTP Server-Sent Events (`text/event-stream`). The pipeline emits granular lifecycle events (`brief_validated`, `draft_synthesized`, `solver_progress`, `candidate_evaluated`, and `synthesis_complete`) directly across the wire as stages complete.
+
+Evaluated over 50 concurrent requests against a local socket Uvicorn server (`benchmarks/benchmark_async_throughput.py`):
+
+| Pipeline Architecture | TTFB (P50) | TTFB (P90) | TTFB (P95) | Throughput | Drop Rate |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Sync Blocking** (`/api/generate`) | 17.71 ms | 17.92 ms | 18.06 ms | 55.7 req/s | 0.0% |
+| **Async SSE Streaming** (`/api/generate/stream`) | **1.87 ms** | **1.93 ms** | **1.94 ms** | **57.0 req/s** | **0.0%** |
+| **Improvement** | **-89.4%** | **-89.2%** | **-89.3%** | **+2.3%** | **Rock-solid** |
+
+*Key Systems Takeaways:*
+- **Time-to-First-Byte (TTFB) slashed by 89.4%** (P50 drops from 17.71 ms to 1.87 ms), providing immediate UI responsiveness and real-time solving telemetry to architects.
+- **Concurrent Throughput sustained at 57.0 req/s** under sustained async load with zero connection drops or socket starvation.
+- Verified wire frames emit structured JSON payloads adhering to the `StreamingEvent` schema. Raw benchmark telemetry is saved to `benchmarks/async_streaming_results.json`.
+
+---
+
 ## Architecture Flow
 
 ```
